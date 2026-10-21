@@ -30,6 +30,11 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: sed -i "s|const OPENROUTER_API_KEY = '__OPENROUTER_API_KEY__';|const OPENROUTER_API_KEY = '${OPENROUTER_API_KEY}';|" index.html
 
+      - name: Sostituisci il placeholder con la chiave Unsplash
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: sed -i "s|const UNSPLASH_ACCESS_KEY = '__UNSPLASH_ACCESS_KEY__';|const UNSPLASH_ACCESS_KEY = '${UNSPLASH_ACCESS_KEY}';|" index.html
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

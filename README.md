@@ -7,6 +7,7 @@ Un'interfaccia di chat AI moderna, veloce e deployabile su GitHub Pages.
 - **Frontend** — HTML/CSS/JS vanilla, zero framework, zero build step
 - **LLM** — [Groq](https://groq.com)
 - **Image generation** — [Pollinations](https://pollinations.ai) (endpoint pubblico, chiamato direttamente dal browser)
+- **Foto a fine risposta** — [Unsplash](https://unsplash.com/developers) con [Wikipedia](https://www.wikipedia.org) come ripiego (vedi sotto)
 - **Klaro Max** — [Puter.js](https://puter.com) (client-side, nessuna chiave tua: l'utente paga col proprio account Puter)
 
 ## Configura il secret su GitHub
@@ -32,6 +33,16 @@ Non è un bug, è un limite intrinseco di un sito 100% statico senza backend: se
 - tieni d'occhio i consumi su [console.groq.com](https://console.groq.com)
 - ruotala ogni tanto (genera una nuova chiave, aggiorna il secret, il prossimo push la rimette a posto)
 - il tachimetro in basso a destra limita già i danni lato client (blocca l'invio oltre 15 richieste/minuto su Free e Turbo), ma è una protezione lato browser, aggirabile da chi sa cosa fa
+
+## Foto a fine risposta
+
+Dopo una risposta lunga e "visiva" (luoghi, animali, cibo, natura…), Klaro mostra una foto coerente con l'argomento. Una piccola richiesta a Groq decide se serve la foto e con quale parola chiave; poi si cerca su Unsplash (o prima su Wikipedia se l'argomento è un luogo/animale/oggetto preciso). Non compare per codice, saluti, argomenti sensibili o persone.
+
+1. Registra un'app su [unsplash.com/developers](https://unsplash.com/developers) e copia la **Access Key**
+2. Aggiungi il secret `UNSPLASH_ACCESS_KEY` come sopra (il deploy lo inietta in `index.html`)
+3. Senza il secret funziona comunque, solo con Wikipedia
+
+Note: la modalità demo di Unsplash ha **50 richieste all'ora per tutta l'app** (non per utente); superato il limite si passa in automatico a Wikipedia. La scelta della foto conta come una richiesta Groq in più nel tachimetro. Per spegnere le foto dal browser: `localStorage.setItem('klaro-photos', 'off')`.
 
 ## Sviluppo locale
 
