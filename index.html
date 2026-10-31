@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://js.puter.com/v2/"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="renderPendingMath()"></script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -2609,8 +2611,7 @@ button:focus-visible, textarea:focus-visible, [role="button"]:focus-visible, a:f
 
 /* Schermata iniziale: titolo grande e compatto come l'h1 di click.io */
 .welcome-spark {
-    width: 48px !important; border-radius: 0 !important; clip-path: none !important; filter: none !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='1' y='1' width='62' height='62' rx='16' fill='%2317181b' stroke='%2326282c' stroke-width='2'/%3E%3Cpath d='M22 19v26M22 33l16-14M28 31l13 14' fill='none' stroke='%23ececea' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='46' cy='19' r='4' fill='%23e9b35f'/%3E%3C/svg%3E") center / contain no-repeat !important;
+    width: 48px !important; border-radius: 50% !important; clip-path: none !important; filter: none !important;
 }
 .welcome-block h2, .welcome-block h2 span {
     color: var(--text) !important; font-weight: 600 !important; letter-spacing: -.045em !important; line-height: 1.02 !important;
@@ -2744,7 +2745,44 @@ button:focus-visible, textarea:focus-visible, [role="button"]:focus-visible, a:f
 .history-item-meta, .history-state { color: var(--muted) !important; }
 .history-state strong { color: var(--text) !important; }
 /* ==KLARO-CLICK-THEME END== */
-    </style>
+    
+/* ── Menu sempre visibili su telefono ── */
+.model-menu { max-height: calc(100vh - 90px); max-height: calc(100dvh - 90px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.attach-menu { max-height: min(430px, calc(100vh - 230px)); max-height: min(430px, calc(100dvh - 230px)); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.modal-box { max-height: 86vh; max-height: 86dvh; }
+@media (max-width: 760px) {
+    .model-menu { width: min(340px, calc(100vw - 24px)) !important; }
+}
+
+/* ── Animazione di caricamento (sostituisce il puntino) ── */
+.loader-anim { display: block; width: 84px; height: auto; margin: 0 0 0 -6px; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+
+/* ── Icona al centro: la favicon ── */
+.welcome-spark { border-radius: 50% !important; }
+
+/* ── Formule (KaTeX) ── */
+.msg-bubble .katex { font-size: 1.12em; }
+.msg-bubble .math-block { margin: .7em 0; padding: 2px 0; overflow-x: auto; overflow-y: hidden; text-align: center; }
+.msg-bubble .math-block .katex-display { margin: .2em 0; }
+.msg-bubble .math-pending { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; opacity: .75; }
+
+/* ── Sezioni: Chat / Quaderno ── */
+.space-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 14px 0 12px; padding: 4px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); }
+.space-switch button { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 38px; padding: 0 10px; border: 0; border-radius: 9px; background: none; color: var(--muted); font: inherit; font-size: .9rem; font-weight: 500; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.space-switch button:hover { color: var(--text); }
+.space-switch button.active { background: var(--hover); color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+.space-switch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.space-pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 22px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: none; color: var(--muted); font: inherit; font-size: .9rem; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.space-pill:hover, .space-pill:focus-visible { background: var(--surface); color: var(--text); }
+.quad-sub { max-width: 470px; margin: 16px auto 0; color: var(--muted); font-size: 1rem; line-height: 1.5; }
+.quad-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin-top: 24px; }
+.quad-actions .space-pill { margin-top: 0; }
+.quad-btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 0 20px; border: 0; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font: inherit; font-size: .98rem; font-weight: 600; cursor: pointer; transition: filter .2s ease; }
+.quad-btn:hover, .quad-btn:focus-visible { filter: brightness(1.08); }
+/* in Quaderno non servono i modelli per codice e immagini */
+body.space-quaderno .model-menu [data-model="code"],
+body.space-quaderno .model-menu [data-model="image"] { display: none; }
+</style>
 </head>
 <body>
     <div class="bg-orbs">
@@ -2871,6 +2909,7 @@ button:focus-visible, textarea:focus-visible, [role="button"]:focus-visible, a:f
                     </div>
                 </div>
                 <input type="file" id="fileInput" style="display:none" onchange="handleFileUpload(event)">
+                <input type="file" id="homeworkFileInput" accept="image/*" style="display:none" onchange="handleFileUpload(event)">
                 <div class="input-wrapper">
                     <textarea id="userInput" rows="1" placeholder="Chiedi a Klaro" onkeydown="handleKeyDown(event)"></textarea>
                 </div>
@@ -2968,14 +3007,24 @@ button:focus-visible, textarea:focus-visible, [role="button"]:focus-visible, a:f
     <div class="history-backdrop" id="historyBackdrop" onclick="handleHistoryBackdrop(event)" aria-hidden="true">
         <aside class="history-panel" id="historyPanel" aria-label="Chat recenti">
             <div class="history-panel-header">
-                <h2>Chat recenti</h2>
+                <h2 id="historyTitle">Chat recenti</h2>
                 <button class="btn-icon" type="button" onclick="closeHistory()" aria-label="Chiudi chat recenti">
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
                 </button>
             </div>
+            <div class="space-switch" role="tablist" aria-label="Sezione">
+                <button type="button" role="tab" data-space="chat" aria-selected="true" onclick="setSpace('chat')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    Chat
+                </button>
+                <button type="button" role="tab" data-space="quaderno" aria-selected="false" onclick="setSpace('quaderno')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a3 3 0 013 3v13H7a3 3 0 01-3-3z"/><path d="M8 9h8M8 13h5"/></svg>
+                    Quaderno
+                </button>
+            </div>
             <button class="history-new" type="button" onclick="newChat(); closeHistory();">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-                Nuova chat
+                <span id="historyNewLabel">Nuova chat</span>
             </button>
             <div class="history-list" id="historyList">
                 <div class="history-state"><strong>nessuna_sessione</strong>Le conversazioni salvate appariranno qui.</div>
@@ -3121,6 +3170,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
         if (storedModel === 'pro') storedModel = 'maxchat'; // migrazione da versione precedente
         let selectedModel = VALID_MODELS.includes(storedModel) ? storedModel : 'light';
         let activeMode = selectedModel === 'image' ? 'vision' : 'instant';
+        let activeSpace = localStorage.getItem('klaro-space') === 'quaderno' ? 'quaderno' : 'chat';
         // ultimo modello di chat scelto (serve quando si riapre una chat dopo aver usato Image)
         const storedChatModel = localStorage.getItem('klaro-last-chat-model');
         let modelTier = selectedModel !== 'image'
@@ -3266,7 +3316,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
             if (processing) return;
             const isOpen = modelMenu.classList.toggle('open');
             modelTierToggle.setAttribute('aria-expanded', String(isOpen));
-            if (isOpen) { renderUsageGauge(); renderEffort(); }
+            if (isOpen) { renderUsageGauge(); renderEffort(); requestAnimationFrame(fitModelMenu); }
         }
 
         function closeModelMenu() {
@@ -3276,6 +3326,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
 
         function selectModel(model) {
             if (processing || !VALID_MODELS.includes(model)) return;
+            if (activeSpace === 'quaderno' && !QUADERNO_MODELS.includes(model)) return;
             if ((model === 'maxchat' || model === 'maxthink') && !puterMaxActive) {
                 openUpgradeModal();
                 return;
@@ -3304,7 +3355,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
             const sys = conversationHistory.find((m) => m.role === 'system');
             if (sys) {
                 const skill = activeSkill ? SKILLS.find((item) => item.id === activeSkill) : null;
-                sys.content = systemPrompts[activeMode]
+                sys.content = baseSystemPrompt()
                     + (skill ? `\n${skill.prompt}` : '')
                     + (deepThink ? ' Think step by step before answering.' : '');
             }
@@ -3392,6 +3443,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
         function conversationTitle(messages) {
             const firstUserMessage = messages.find((message) => message.role === 'user')?.content || 'Nuova chat';
             const cleanText = firstUserMessage.replace(/\s+/g, ' ').trim();
+            if (/^\[(Immagine allegata|Screenshot catturato)/i.test(cleanText)) return activeSpace === 'quaderno' ? 'Esercizio da foto' : 'Immagine';
             const words = cleanText.split(' ');
             return words.slice(0, 5).join(' ') + (words.length > 5 ? '...' : '');
         }
@@ -3407,17 +3459,18 @@ Rispondi SOLO con il titolo, nient'altro.`;
                         id: conversation.id,
                         title: typeof conversation.title === 'string' ? conversation.title.slice(0, 80) : 'Nuova chat',
                         mode: conversation.mode || 'instant',
+                        space: conversation.space === 'quaderno' ? 'quaderno' : 'chat',
                         messages: Array.isArray(conversation.messages) ? conversation.messages : [],
                         updatedAt: conversation.updatedAt || new Date().toISOString()
                     }];
-                }).slice(0, 20);
+                }).slice(0, 40);
             } catch (error) {
                 return [];
             }
         }
 
         function storeConversations(conversations) {
-            localStorage.setItem(conversationsStorageKey, JSON.stringify(conversations.slice(0, 20)));
+            localStorage.setItem(conversationsStorageKey, JSON.stringify(conversations.slice(0, 40)));
         }
 
         function saveCurrentConversation() {
@@ -3434,17 +3487,18 @@ Rispondi SOLO con il titolo, nient'altro.`;
                     id: currentConversationId,
                     title: initialTitle,
                     mode: activeMode,
+                    space: activeSpace,
                     messages,
                     updatedAt: new Date().toISOString()
                 };
                 recentConversations = [
                     savedConversation,
                     ...existingConvs.filter((conversation) => conversation.id !== currentConversationId)
-                ].slice(0, 20);
+                ].slice(0, 40);
                 storeConversations(recentConversations);
                 renderRecentConversations();
 
-                if (firstUserMsgObj.content && (!existingConv || existingConv.title === conversationTitle(messages))) {
+                if (firstUserMsgObj.content && !isImagePlaceholder(firstUserMsgObj.content) && (!existingConv || existingConv.title === conversationTitle(messages))) {
                     const convIdToUpdate = currentConversationId;
                     generateGroqTitle(firstUserMsgObj.content).then(aiTitle => {
                         if (aiTitle && aiTitle !== initialTitle) {
@@ -3481,12 +3535,13 @@ Rispondi SOLO con il titolo, nient'altro.`;
         }
 
         function renderRecentConversations() {
-            if (!recentConversations.length) {
-                historyList.innerHTML = '<div class="history-state">Nessuna chat recente.</div>';
+            const visibleConversations = recentConversations.filter((conversation) => (conversation.space || 'chat') === activeSpace);
+            if (!visibleConversations.length) {
+                historyList.innerHTML = `<div class="history-state">${activeSpace === 'quaderno' ? 'Nessun esercizio recente.' : 'Nessuna chat recente.'}</div>`;
                 return;
             }
 
-            historyList.innerHTML = recentConversations.map((conversation) => `
+            historyList.innerHTML = visibleConversations.map((conversation) => `
                 <div class="history-item ${conversation.id === currentConversationId ? 'active' : ''}" onclick="openConversation('${conversation.id}')">
                     <span class="history-item-title">${escapeHtml(conversation.title || 'Nuova chat')}</span>
                     <span class="history-item-meta">${formatConversationDate(conversation.updatedAt)}</span>
@@ -3525,7 +3580,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
             currentConversationId = conversation.id;
             activeMode = ['instant', 'expert', 'vision'].includes(conversation.mode) ? conversation.mode : 'instant';
             conversationHistory = [
-                { role: 'system', content: systemPrompts[activeMode] },
+                { role: 'system', content: baseSystemPrompt() },
                 ...(Array.isArray(conversation.messages) ? conversation.messages : [])
             ];
             selectedModel = activeMode === 'vision' ? 'image' : (selectedModel !== 'image' ? selectedModel : modelTier);
@@ -3797,7 +3852,9 @@ Rispondi SOLO con il titolo, nient'altro.`;
 
         async function chatWithAI(messages) {
             const imageIdx = latestImageIndex(messages);
-            if (imageIdx !== -1) {
+            if (activeSpace === 'quaderno') {
+                messages = await messagesWithHomework(messages);
+            } else if (imageIdx !== -1) {
                 const textOnlyModel = ['maxchat', 'maxthink', 'code'].includes(selectedModel);
                 let visionError = null;
                 if (!textOnlyModel) {
@@ -3837,6 +3894,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
             } else if (cfg.fixedEffort) {
                 request.reasoning_effort = cfg.fixedEffort;
             }
+            if (activeSpace === 'quaderno') request.max_tokens = Math.max(request.max_tokens || 0, 6000);
             const reply = await callGroqChatCompletion(request);
             return reply || 'Nessuna risposta.';
         }
@@ -4046,6 +4104,12 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
             });
             // 2) codice inline
             text = text.replace(/`([^`\n]+)`/g, (m, code) => keep(`<code>${esc(code)}</code>`));
+            // 2b) formule LaTeX: $$…$$, \[…\], \(…\), $…$ (KaTeX)
+            const mathBlock = (tex) => '\n' + keep(`<div class="math-block">${renderMath(tex, true)}</div>`) + '\n';
+            text = text.replace(/\$\$([\s\S]+?)\$\$/g, (m, tex) => mathBlock(tex));
+            text = text.replace(/\\\[([\s\S]+?)\\\]/g, (m, tex) => mathBlock(tex));
+            text = text.replace(/\\\(([\s\S]+?)\\\)/g, (m, tex) => keep(renderMath(tex, false)));
+            text = text.replace(/\$([^\s$](?:[^$\n]*?[^\s$])?)\$(?!\d)/g, (m, tex) => keep(renderMath(tex, false)));
 
             // 3) escape HTML (sicurezza) + <br> ammesso
             text = esc(text).replace(/&lt;br\s*\/?&gt;/gi, '<br>');
@@ -4165,7 +4229,7 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
             div.innerHTML = `
                 <div class="msg-avatar"></div>
                 <div class="msg-bubble">
-                    <div class="pulse-loader"><span class="pulse-dot"></span></div>
+                    <img class="loader-anim" src="loader.webp" alt="Klaro sta elaborando" decoding="async">
                 </div>
             `;
             messagesArea.appendChild(div);
@@ -4569,7 +4633,7 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
                 }
                 const answerBubble = messagesArea.lastElementChild?.querySelector('.msg-bubble');
                 registerRequest(selectedModel);
-                addPhotoToAnswer(answerBubble, text, reply); // senza await: la foto arriva dopo, senza far aspettare la risposta
+                if (activeSpace !== 'quaderno') addPhotoToAnswer(answerBubble, text, reply); // senza await: la foto arriva dopo, senza far aspettare la risposta
             } catch (e) {
                 hideTyping();
                 console.error(e);
@@ -4605,15 +4669,13 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
         function newChatBase() {
             if (processing) return;
             currentConversationId = createConversationId();
-            conversationHistory = [{ role: 'system', content: systemPrompts[activeMode] }];
+            conversationHistory = [{ role: 'system', content: baseSystemPrompt() }];
             clearSkill();
             messagesArea.innerHTML = '';
             const w = document.createElement('div');
             w.className = 'welcome-block';
             w.id = 'welcomeBlock';
-            w.innerHTML = `
-                <div class="welcome-spark" aria-hidden="true"></div>
-                <h2><span id="welcomeSlogan"></span></h2>`;
+            w.innerHTML = welcomeInnerHtml();
             messagesArea.appendChild(w);
             welcomeBlock = w;
             renderRecentConversations();
@@ -4709,6 +4771,7 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
             event?.stopPropagation();
             const isOpen = attachMenu.classList.toggle('open');
             attachBtn.setAttribute('aria-expanded', String(isOpen));
+            if (isOpen) fitAttachMenu();
         }
         function closeAttachMenu() {
             attachMenu.classList.remove('open');
@@ -5043,6 +5106,206 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
             }
         }
 
+        // ── Quaderno: compiti da foto ─────────────────────────────────
+        // Sezione separata dalla chat normale, con le sue conversazioni: foto dell'esercizio →
+        // trascrizione → svolgimento in bella copia, con formule renderizzate da KaTeX
+        // (frazioni con la barra orizzontale, radici, potenze…).
+        const QUADERNO_MODELS = ['light', 'turbo', 'plus', 'maxchat', 'maxthink'];
+        const HOMEWORK_SYSTEM_PROMPT = `You are Klaro Quaderno, the homework mode of Klaro AI: a patient, precise tutor for students. Answer in the language of the user (Italian by default).${IDENTITY_RULE}
+For every exercise (typed by the user or transcribed from a photo) write: "## Esercizio N" (keep the numbering of the book if visible), then "**Testo**" with the exercise rewritten cleanly, then "**Svolgimento**" with short numbered steps (one short sentence of reasoning per step, then the calculation), then "**Risultato**" with the final answer in bold. For non-maths subjects (grammar, translation, history, science) adapt the structure but stay ordered and concise. If something in the photo is unreadable or ambiguous, say what you could not read and which assumption you made; never invent data. If the student already wrote an answer in the photo, check it and point out mistakes kindly. If the user only asks to transcribe or check, do only that.
+MATH FORMATTING (very important): write every formula, equation, inequality, fraction, power, root, set, function, and every number with a unit in LaTeX. Inline formulas go between single dollar signs ($...$); equations or multi-step calculations go on their own lines between double dollar signs ($$...$$). Fractions must ALWAYS be written with \\frac{numerator}{denominator} (horizontal bar) and never as a/b or 3/4; use \\sqrt{...}, ^, _, \\cdot, \\times, \\div, \\le, \\ge, \\neq, \\pm, \\text{...} for words inside formulas, and \\begin{aligned} ... \\end{aligned} inside $$ ... $$ to align steps. Never use \\( \\) or \\[ \\] delimiters and never put formulas in code blocks.
+Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
+        const HOMEWORK_TRANSCRIBE_PROMPT = `Trascrivi fedelmente, in italiano, tutto il testo degli esercizi visibili nella foto (compreso il numero dell'esercizio), senza risolverli e senza commentare. Scrivi ogni formula, frazione, potenza, radice ed equazione in LaTeX: inline tra $...$, equazioni su una riga propria tra $$...$$, con le frazioni sempre come \\frac{numeratore}{denominatore}. Se ci sono figure, grafici o tabelle, descrivili brevemente tra [parentesi quadre] riportando i dati utili. Se una parte è illeggibile scrivi [illeggibile]. Se vedi uno svolgimento o una risposta già scritti a mano dall'alunno, trascrivili dopo la dicitura "Svolgimento dell'alunno:".`;
+        const homeworkTranscriptions = new Map();
+
+        function baseSystemPrompt() {
+            return activeSpace === 'quaderno' ? HOMEWORK_SYSTEM_PROMPT : systemPrompts[activeMode];
+        }
+
+        function quadernoModelAllowed(model) {
+            return QUADERNO_MODELS.includes(model) && (!['maxchat', 'maxthink'].includes(model) || puterMaxActive);
+        }
+
+        // Cambia il modello senza passare dal menu (serve quando si cambia sezione).
+        function applyModel(model) {
+            selectedModel = model;
+            if (model !== 'image') {
+                modelTier = model;
+                localStorage.setItem('klaro-last-chat-model', model);
+            }
+            localStorage.setItem('klaro-selected-model', selectedModel);
+            syncModeToModel();
+            renderModelTier();
+            renderUsageGauge();
+        }
+
+        function welcomeInnerHtml() {
+            if (activeSpace === 'quaderno') {
+                return `
+                <div class="welcome-spark" aria-hidden="true"></div>
+                <h2><span>Quaderno</span></h2>
+                <p class="quad-sub">Fotografa l'esercizio: Klaro lo legge, lo risolve e te lo scrive in bella copia, con frazioni e formule come sul libro.</p>
+                <div class="quad-actions">
+                    <button class="quad-btn" type="button" onclick="document.getElementById('homeworkFileInput').click()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        Foto dell'esercizio
+                    </button>
+                    <button class="space-pill" type="button" onclick="setSpace('chat')">Torna alla chat</button>
+                </div>`;
+            }
+            return `
+                <div class="welcome-spark" aria-hidden="true"></div>
+                <h2><span id="welcomeSlogan"></span></h2>
+                <button class="space-pill" type="button" onclick="setSpace('quaderno')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a3 3 0 013 3v13H7a3 3 0 01-3-3z"/><path d="M8 9h8M8 13h5"/></svg>
+                    Quaderno · fai i compiti da una foto
+                </button>`;
+        }
+
+        function applySpaceUI() {
+            const quaderno = activeSpace === 'quaderno';
+            document.body.classList.toggle('space-quaderno', quaderno);
+            document.querySelectorAll('.space-switch button').forEach((button) => {
+                const on = button.dataset.space === activeSpace;
+                button.classList.toggle('active', on);
+                button.setAttribute('aria-selected', String(on));
+            });
+            const title = document.getElementById('historyTitle');
+            if (title) title.textContent = quaderno ? 'Quaderni recenti' : 'Chat recenti';
+            const newLabel = document.getElementById('historyNewLabel');
+            if (newLabel) newLabel.textContent = quaderno ? 'Nuovo esercizio' : 'Nuova chat';
+            userInput.placeholder = quaderno ? 'Scrivi un esercizio o allega una foto' : 'Chiedi a Klaro';
+            const prefix = document.querySelector('.model-name-prefix');
+            if (prefix) prefix.textContent = quaderno ? 'Quaderno' : 'Klaro';
+        }
+
+        function setSpace(space) {
+            if (!['chat', 'quaderno'].includes(space)) return;
+            if (space === activeSpace) { closeHistory(); return; }
+            if (processing) { showToast('Aspetta che Klaro finisca di rispondere.'); return; }
+            // ogni sezione ricorda il suo ultimo modello
+            localStorage.setItem('klaro-model-' + activeSpace, selectedModel);
+            activeSpace = space;
+            localStorage.setItem('klaro-space', space);
+            let target = localStorage.getItem('klaro-model-' + space)
+                || (space === 'quaderno' ? 'plus' : (localStorage.getItem('klaro-last-chat-model') || 'light'));
+            if (!VALID_MODELS.includes(target)) target = space === 'quaderno' ? 'plus' : 'light';
+            if (space === 'quaderno' && !quadernoModelAllowed(target)) target = 'plus';
+            if (['maxchat', 'maxthink'].includes(target) && !puterMaxActive) target = 'light';
+            pendingAttachment = null;
+            renderAttachPreview();
+            applyModel(target);
+            applySpaceUI();
+            newChatBase();
+            startSloganRotation();
+            closeHistory();
+        }
+
+        async function transcribeHomeworkImage(dataUrl, note) {
+            if (homeworkTranscriptions.has(dataUrl)) return homeworkTranscriptions.get(dataUrl);
+            const prompt = HOMEWORK_TRANSCRIBE_PROMPT + (note ? ` Indicazione dell'alunno: "${note.slice(0, 300)}".` : '');
+            let lastError = null;
+            try {
+                const text = ((await callGroqVision({
+                    temperature: 0.1,
+                    max_tokens: 4096,
+                    messages: [{ role: 'user', content: [{ type: 'text', text: prompt }, { type: 'image_url', image_url: { url: dataUrl } }] }]
+                })) || '').trim();
+                registerRequest('light');
+                if (text) { homeworkTranscriptions.set(dataUrl, text); return text; }
+            } catch (error) {
+                lastError = error;
+                console.warn('Trascrizione con Groq non riuscita', error);
+            }
+            if (window.puter) {
+                try {
+                    const response = await puter.ai.chat(prompt, dataUrl, false, { model: PUTER_VISION_MODEL });
+                    const text = (parsePuterChatResponse(response).text || '').trim();
+                    if (text) { homeworkTranscriptions.set(dataUrl, text); return text; }
+                } catch (error) {
+                    lastError = error;
+                    console.warn('Trascrizione con Puter non riuscita', error);
+                }
+            }
+            if (lastError && isQuotaError(lastError)) throw lastError;
+            const reason = (lastError?.message || '').slice(0, 140);
+            throw new Error("Non riesco a leggere la foto dell'esercizio. Riprova con una foto più nitida, ben illuminata e inquadrata dall'alto." + (reason ? ` (${reason})` : ''));
+        }
+
+        // Sostituisce le foto con la loro trascrizione, così ogni modello di testo può risolverle
+        // (e le domande successive nella stessa chat ritrovano l'esercizio senza rileggere la foto).
+        async function messagesWithHomework(messages) {
+            const withImages = messages.map((message, i) => (imageParts(message).length ? i : -1)).filter((i) => i !== -1).slice(-3);
+            const result = [];
+            for (let i = 0; i < messages.length; i++) {
+                const message = messages[i];
+                if (!withImages.includes(i)) { result.push(message); continue; }
+                const original = textOfMessage(message).trim();
+                const note = isImagePlaceholder(original) ? '' : original;
+                const transcription = await transcribeHomeworkImage(imageParts(message)[0].image_url.url, note);
+                result.push({ role: message.role, content: `${note || 'Risolvi gli esercizi della foto.'}\n\n[Esercizi trascritti dalla foto]\n${transcription}` });
+            }
+            return result;
+        }
+
+        // ── Formule (KaTeX) ──
+        function renderMath(tex, display) {
+            const src = String(tex).trim();
+            if (window.katex) {
+                try {
+                    return window.katex.renderToString(src, { displayMode: display, throwOnError: false, strict: 'ignore', output: 'html' });
+                } catch (error) { /* ripiego sotto */ }
+            }
+            const safe = escapeHtml(src);
+            const mark = display ? '$$' : '$';
+            return `<span class="math-pending" data-display="${display ? 1 : 0}" data-tex="${safe}">${mark}${safe}${mark}</span>`;
+        }
+
+        // Se KaTeX arriva dopo il primo messaggio, rifà le formule rimaste in forma di testo.
+        function renderPendingMath() {
+            if (!window.katex) return;
+            document.querySelectorAll('.math-pending').forEach((el) => {
+                try {
+                    el.innerHTML = window.katex.renderToString(el.dataset.tex || '', { displayMode: el.dataset.display === '1', throwOnError: false, strict: 'ignore', output: 'html' });
+                    el.classList.remove('math-pending');
+                } catch (error) { /* resta il testo */ }
+            });
+        }
+        window.addEventListener('load', renderPendingMath);
+
+        // ── Menu a tendina: sempre dentro lo schermo (anche su telefono, con barra del browser e tastiera) ──
+        function visibleViewportBottom() {
+            const vv = window.visualViewport;
+            return vv ? vv.offsetTop + vv.height : window.innerHeight;
+        }
+
+        function fitModelMenu() {
+            if (!modelMenu.classList.contains('open')) return;
+            const top = modelMenu.getBoundingClientRect().top;
+            modelMenu.style.maxHeight = Math.max(180, visibleViewportBottom() - top - 20) + 'px';
+        }
+
+        function fitAttachMenu() {
+            if (!attachMenu.classList.contains('open')) return;
+            const vv = window.visualViewport;
+            const topLimit = (vv ? vv.offsetTop : 0) + 72;
+            const available = attachBtn.getBoundingClientRect().top - topLimit - 12;
+            attachMenu.style.maxHeight = Math.max(150, available) + 'px';
+        }
+
+        function refitMenus() { fitModelMenu(); fitAttachMenu(); }
+        window.addEventListener('resize', refitMenus);
+        window.visualViewport?.addEventListener('resize', refitMenus);
+
+        // Precarica l'animazione di caricamento quando la pagina è libera
+        window.addEventListener('load', () => setTimeout(() => { new Image().src = 'loader.webp'; }, 1200));
+
+        if (activeSpace === 'quaderno' && !quadernoModelAllowed(selectedModel)) {
+            selectedModel = 'plus'; modelTier = 'plus'; activeMode = 'instant';
+            localStorage.setItem('klaro-selected-model', 'plus');
+        }
+        applySpaceUI();
+        if (welcomeBlock) welcomeBlock.innerHTML = welcomeInnerHtml();
         refreshMaxUI();
         updateSearchCheck();
         syncModeToModel();
