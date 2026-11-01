@@ -2273,7 +2273,7 @@
 
         /* removed duplicate attach-menu-wrap */
         .attach-menu {
-            position: absolute; bottom: calc(100% + 10px); left: 0; min-width: 240px;
+            position: absolute; bottom: calc(100% + 24px); left: 0; min-width: 240px;
             background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px;
             box-shadow: var(--glass-shadow); padding: 6px; display: none; flex-direction: column; z-index: 60;
         }
@@ -2625,8 +2625,8 @@ button:focus-visible, textarea:focus-visible, [role="button"]:focus-visible, a:f
     color: var(--text) !important; box-shadow: none !important;
 }
 .message.ai .msg-avatar::before {
-    border-radius: 0 !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='1' y='1' width='62' height='62' rx='16' fill='%2317181b' stroke='%2326282c' stroke-width='2'/%3E%3Cpath d='M22 19v26M22 33l16-14M28 31l13 14' fill='none' stroke='%23ececea' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='46' cy='19' r='4' fill='%23e9b35f'/%3E%3C/svg%3E") center / contain no-repeat !important;
+    border-radius: 50% !important;
+    background: url("data:image/png;base64,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") center / contain no-repeat !important;
 }
 .msg-bubble a { color: var(--accent) !important; text-underline-offset: 2px; }
 .msg-bubble blockquote { border-left: 3px solid color-mix(in srgb, var(--accent) 70%, transparent) !important; color: var(--muted); opacity: 1 !important; }
@@ -2782,6 +2782,24 @@ button:focus-visible, textarea:focus-visible, [role="button"]:focus-visible, a:f
 /* in Quaderno non servono i modelli per codice e immagini */
 body.space-quaderno .model-menu [data-model="code"],
 body.space-quaderno .model-menu [data-model="image"] { display: none; }
+
+/* Tabelle nelle risposte: colonne leggibili (niente parole spezzate), si scorre di lato se serve */
+.msg-bubble .md-table th { white-space: normal; }
+.msg-bubble .md-table th, .msg-bubble .md-table td { min-width: 96px; overflow-wrap: break-word; word-break: normal; }
+.msg-bubble u { text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+/* Espressioni a passaggi: allineate a sinistra come sul quaderno (le formule singole restano centrate) */
+.msg-bubble .math-block:has(.mtable) .katex-display, .msg-bubble .math-block:has(.mtable) .katex-display > .katex { text-align: left; }
+.msg-bubble mark { background: color-mix(in srgb, var(--accent) 35%, transparent); color: inherit; border-radius: 3px; padding: 0 2px; }
+
+/* ── Più foto per messaggio ── */
+.attach-preview-bar { flex-wrap: wrap; align-items: center; gap: 8px; max-height: 132px; overflow-y: auto; padding-top: 8px; }
+.attach-preview-chip.thumb { padding: 4px; }
+.attach-preview-chip.thumb .attach-file-name { display: none; }
+.attach-count { margin-left: 2px; color: var(--muted); font-size: .78rem; }
+.msg-attachment-grid { display: flex; flex-wrap: wrap; gap: 6px; max-width: 420px; margin: 0 0 8px; }
+.msg-attachment-grid .msg-attachment-img { width: 96px; height: 96px; max-width: none; max-height: none; margin: 0 !important; }
+/* "Scatta una foto" solo dove c'è una fotocamera comoda (telefoni e tablet) */
+@media (hover: hover) and (pointer: fine) { .cam-only { display: none !important; } }
 </style>
 </head>
 <body>
@@ -2873,9 +2891,13 @@ body.space-quaderno .model-menu [data-model="image"] { display: none; }
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
                     </button>
                     <div class="attach-menu" id="attachMenu" role="menu" aria-label="Aggiungi contenuti">
+                        <button type="button" class="cam-only" onclick="closeAttachMenu(); document.getElementById('cameraInput').click();">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Scatta una foto
+                        </button>
                         <button type="button" onclick="document.getElementById('fileInput').click(); closeAttachMenu();">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
-                            Allega file
+                            Allega foto o file
                         </button>
                         <button type="button" onclick="closeAttachMenu(); captureScreenshot();">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -2908,8 +2930,9 @@ body.space-quaderno .model-menu [data-model="image"] { display: none; }
                         </button>
                     </div>
                 </div>
-                <input type="file" id="fileInput" style="display:none" onchange="handleFileUpload(event)">
-                <input type="file" id="homeworkFileInput" accept="image/*" style="display:none" onchange="handleFileUpload(event)">
+                <input type="file" id="fileInput" multiple style="display:none" onchange="handleFileUpload(event)">
+                <input type="file" id="homeworkFileInput" accept="image/*" multiple style="display:none" onchange="handleFileUpload(event)">
+                <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none" onchange="handleFileUpload(event)">
                 <div class="input-wrapper">
                     <textarea id="userInput" rows="1" placeholder="Chiedi a Klaro" onkeydown="handleKeyDown(event)"></textarea>
                 </div>
@@ -3044,12 +3067,11 @@ body.space-quaderno .model-menu [data-model="image"] { display: none; }
         // con la tua chiave, si riprova in automatico con quello indicato.
         const GROQ_FALLBACK_MODEL = 'openai/gpt-oss-20b';
         // Modelli Groq con visione, usati quando nella chat c'è una foto (Turbo / Flash / Plus).
-        // Llama 4 Scout è stato spento da Groq il 17/07/2026: il primo è il suo sostituto
-        // consigliato; gli altri restano come ripiego (si prova il successivo se un modello non esiste più).
+        // Llama 4 Maverick (09/03/2026) e Scout (17/07/2026) sono stati spenti da Groq: restano i Qwen
+        // multimodali (max 3 immagini per richiesta). Si prova il successivo se un modello non è disponibile.
         const GROQ_VISION_MODELS = [
-            'qwen/qwen3.6-27b',
-            'meta-llama/llama-4-maverick-17b-128e-instruct',
-            'meta-llama/llama-4-scout-17b-16e-instruct'
+            'qwen/qwen3.8-27b',
+            'qwen/qwen3.6-27b'
         ];
         let groqVisionStart = 0; // ricorda l'ultimo modello che ha funzionato
         const PUTER_VISION_MODEL = 'gemini-3-flash-preview';
@@ -3274,10 +3296,39 @@ Rispondi SOLO con il titolo, nient'altro.`;
 
         const FORMAT_RULE = ` Format every answer in clean Markdown, each element on its own line: use "## " headings for sections, "- " bullet lists, numbered lists, **bold** for key terms, and real Markdown tables (a header row, a |---|---| separator row, then one row per line) whenever you compare things or list data. Leave a blank line between blocks. Use fenced code blocks for code.`;
 
+        const EXPRESSION_SCHEME = ` THE SCHEME: ONE block $$\\begin{aligned} ... \\end{aligned}$$, one line per step. The first line is the original expression followed by "=". Every following line starts with "& =", rewrites the WHOLE expression after doing only the operations of that step, and ends with "= \\\\" except the last line, which ends with the final result and nothing else. Use \\cdot for multiplication and : for division, and \\left( \\right), \\left[ \\right], \\left\\{ \\right\\} for round, square and curly brackets. No colours, no underlining. ORDER OF OPERATIONS, strictly, one level per step, never skipping or mixing levels: (1) powers and roots, all of them together, also inside brackets; (2) brackets, from the innermost outwards: inside a bracket apply the same order (multiplications and divisions from left to right, then additions and subtractions from left to right), one level per line, and remove the bracket only when what is inside has become a single number or fraction; (3) outside the brackets: multiplications and divisions from left to right; (4) additions and subtractions from left to right, one pair per step. Copy unchanged everything not touched in that step, keep the original order of the terms, mind the signs (a minus in front of a bracket changes the signs inside when the bracket is removed) and double-check every calculation. FRACTIONS: always \\frac{numerator}{denominator} with the horizontal bar, never a/b. To add or subtract fractions, first write them on the least common denominator as one fraction with the sum or difference of the numerators (\\frac{10-3}{12}), then, on the next line, calculate it. To divide by a fraction, first turn the division into a multiplication by the inverse fraction (own line). A power of a fraction is rewritten as the fraction times itself (own line) before multiplying. At the end simplify and give the reduced fraction (a mixed number only if the exercise uses them). Examples, copy this style exactly:
+$$\\begin{aligned}
+& 3^3+5^2-2\\cdot(4^2-1^3) = \\\\
+& = 27+25-2\\cdot(16-1) = \\\\
+& = 27+25-2\\cdot 15 = \\\\
+& = 27+25-30 = \\\\
+& = 52-30 = \\\\
+& = 22
+\\end{aligned}$$
+$$\\begin{aligned}
+& \\left(\\frac{5}{6}-\\frac{1}{4}\\right)^2 = \\\\
+& = \\left(\\frac{10-3}{12}\\right)^2 = \\\\
+& = \\left(\\frac{7}{12}\\right)^2 = \\\\
+& = \\frac{7}{12}\\cdot\\frac{7}{12} = \\\\
+& = \\frac{49}{144}
+\\end{aligned}$$
+$$\\begin{aligned}
+& \\left[\\left(\\frac{1}{2}+\\frac{1}{3}\\right)\\cdot\\frac{6}{5}-\\frac{1}{5}\\right]:\\left(\\frac{3}{2}\\right)^2 = \\\\
+& = \\left[\\left(\\frac{1}{2}+\\frac{1}{3}\\right)\\cdot\\frac{6}{5}-\\frac{1}{5}\\right]:\\frac{9}{4} = \\\\
+& = \\left[\\left(\\frac{3+2}{6}\\right)\\cdot\\frac{6}{5}-\\frac{1}{5}\\right]:\\frac{9}{4} = \\\\
+& = \\left[\\frac{5}{6}\\cdot\\frac{6}{5}-\\frac{1}{5}\\right]:\\frac{9}{4} = \\\\
+& = \\left[1-\\frac{1}{5}\\right]:\\frac{9}{4} = \\\\
+& = \\left[\\frac{5-1}{5}\\right]:\\frac{9}{4} = \\\\
+& = \\frac{4}{5}:\\frac{9}{4} = \\\\
+& = \\frac{4}{5}\\cdot\\frac{4}{9} = \\\\
+& = \\frac{16}{45}
+\\end{aligned}$$`;
+        const EXPRESSION_RULE = ` WHEN SOLVING A NUMERIC OR ALGEBRAIC EXPRESSION (an "espressione"), answer like a school workbook with no extra words: only the block below (at most one short line before it), with no tables, no lists of steps and no explanations.${EXPRESSION_SCHEME}`;
+
         const systemPrompts = {
-            instant: `You are Klaro AI, a friendly and concise multilingual assistant.${IDENTITY_RULE}${FORMAT_RULE}`,
-            expert: `You are Klaro AI, an expert and technical multilingual assistant.${IDENTITY_RULE}${FORMAT_RULE}`,
-            vision: `You are Klaro AI, a multilingual assistant in vision mode.${IDENTITY_RULE}${FORMAT_RULE}`
+            instant: `You are Klaro AI, a friendly and concise multilingual assistant.${IDENTITY_RULE}${FORMAT_RULE}${EXPRESSION_RULE}`,
+            expert: `You are Klaro AI, an expert and technical multilingual assistant.${IDENTITY_RULE}${FORMAT_RULE}${EXPRESSION_RULE}`,
+            vision: `You are Klaro AI, a multilingual assistant in vision mode.${IDENTITY_RULE}${FORMAT_RULE}${EXPRESSION_RULE}`
         };
 
         let conversationHistory = [
@@ -3430,13 +3481,126 @@ Rispondi SOLO con il titolo, nient'altro.`;
             }
         }
 
+        // ── Foto e trascrizioni salvate nel browser (IndexedDB) ──────────────
+        // Le foto restano in cache anche dopo aver chiuso o ricaricato la pagina: riaprendo una chat
+        // si rivedono e Klaro può ancora rispondere alle domande successive senza rileggerle.
+        let mediaDbPromise = null;
+        function mediaDb() {
+            if (!mediaDbPromise) {
+                mediaDbPromise = new Promise((resolve) => {
+                    try {
+                        if (!window.indexedDB) { resolve(null); return; }
+                        const req = indexedDB.open('klaro-media', 1);
+                        req.onupgradeneeded = () => {
+                            const db = req.result;
+                            if (!db.objectStoreNames.contains('images')) db.createObjectStore('images');
+                            if (!db.objectStoreNames.contains('texts')) db.createObjectStore('texts');
+                        };
+                        req.onsuccess = () => resolve(req.result);
+                        req.onerror = () => resolve(null);
+                        req.onblocked = () => resolve(null);
+                    } catch (error) { resolve(null); }
+                });
+            }
+            return mediaDbPromise;
+        }
+
+        async function mediaRequest(store, mode, run) {
+            const db = await mediaDb();
+            if (!db) return null;
+            return new Promise((resolve) => {
+                try {
+                    const tx = db.transaction(store, mode);
+                    const request = run(tx.objectStore(store));
+                    tx.oncomplete = () => resolve(request ? request.result : true);
+                    tx.onerror = () => resolve(null);
+                    tx.onabort = () => resolve(null);
+                } catch (error) { resolve(null); }
+            });
+        }
+        const mediaGet = (store, key) => mediaRequest(store, 'readonly', (st) => st.get(key));
+        const mediaKeys = (store) => mediaRequest(store, 'readonly', (st) => st.getAllKeys());
+        const mediaPut = (store, key, value) => mediaRequest(store, 'readwrite', (st) => { st.put(value, key); return null; });
+        const mediaDelete = (store, keys) => mediaRequest(store, 'readwrite', (st) => { keys.forEach((key) => st.delete(key)); return null; });
+
+        function textHash(value) {
+            let h1 = 5381, h2 = 52711;
+            for (let i = 0; i < value.length; i++) {
+                const c = value.charCodeAt(i);
+                h1 = (Math.imul(h1, 33) ^ c) | 0;
+                h2 = (Math.imul(h2, 31) + c) | 0;
+            }
+            return (h1 >>> 0).toString(36) + (h2 >>> 0).toString(36) + value.length.toString(36);
+        }
+
+        function rememberTranscription(dataUrl, text) {
+            homeworkTranscriptions.set(dataUrl, text);
+            mediaPut('texts', 't:' + textHash(dataUrl), text);
+        }
+        function rememberDescription(dataUrl, text) {
+            imageDescriptionCache.set(dataUrl, text);
+            mediaPut('texts', 'd:' + textHash(dataUrl), text);
+        }
+
+        const savedMediaKeys = new Set();
+        function messagesWithText() {
+            return conversationHistory.filter((message) => ['user', 'assistant'].includes(message.role) && textOfMessage(message).trim());
+        }
+
+        // Salva le foto della conversazione (una sola volta per messaggio)
+        function persistConversationImages(convId) {
+            messagesWithText().forEach((message, idx) => {
+                const urls = imageParts(message).map((part) => part.image_url.url);
+                const key = `${convId}:${idx}`;
+                if (!urls.length || savedMediaKeys.has(key)) return;
+                savedMediaKeys.add(key);
+                mediaPut('images', key, urls).then((ok) => { if (!ok) savedMediaKeys.delete(key); });
+            });
+        }
+
+        async function deleteConversationMedia(id) {
+            const keys = (await mediaKeys('images')) || [];
+            const mine = keys.filter((key) => String(key).startsWith(id + ':'));
+            mine.forEach((key) => savedMediaKeys.delete(key));
+            if (mine.length) await mediaDelete('images', mine);
+        }
+
+        // Toglie le foto di chat che non esistono più nella cronologia
+        async function pruneMedia() {
+            const ids = new Set(readStoredConversations().map((conversation) => conversation.id));
+            const keys = (await mediaKeys('images')) || [];
+            const stale = keys.filter((key) => !ids.has(String(key).split(':')[0]));
+            if (stale.length) await mediaDelete('images', stale);
+        }
+
+        // Riporta le foto salvate dentro una chat riaperta (a schermo e nella cronologia che Klaro legge)
+        async function restoreConversationImages(convId, items) {
+            for (const item of items) {
+                const key = `${convId}:${item.i}`;
+                const urls = await mediaGet('images', key);
+                if (convId !== currentConversationId) return; // nel frattempo ha cambiato chat
+                const bubble = item.el.querySelector('.msg-bubble');
+                if (!Array.isArray(urls) || !urls.length) {
+                    if (bubble && isImagePlaceholder(item.text)) bubble.innerHTML = formatText(item.text); // foto non più disponibili
+                    continue;
+                }
+                savedMediaKeys.add(key);
+                if (bubble) bubble.insertAdjacentHTML('afterbegin', attachmentImagesHtml(urls.map((url, n) => ({ dataUrl: url, name: `foto ${n + 1}` }))));
+                const target = conversationHistory.filter((message) => message.role !== 'system')[item.i];
+                if (target) {
+                    target.content = [
+                        { type: 'text', text: item.text },
+                        ...urls.map((url) => ({ type: 'image_url', image_url: { url } }))
+                    ];
+                }
+            }
+        }
+
         function serializableMessages() {
-            return conversationHistory.flatMap((message) => {
-                if (!['user', 'assistant'].includes(message.role)) return [];
-                const content = Array.isArray(message.content)
-                    ? message.content.map((part) => part?.text || '').filter(Boolean).join('\n')
-                    : String(message.content || '');
-                return content.trim() ? [{ role: message.role, content: content.trim() }] : [];
+            return messagesWithText().map((message) => {
+                const content = textOfMessage(message).trim();
+                const imgs = imageParts(message).length;
+                return imgs ? { role: message.role, content, imgs } : { role: message.role, content };
             });
         }
 
@@ -3497,6 +3661,8 @@ Rispondi SOLO con il titolo, nient'altro.`;
                 ].slice(0, 40);
                 storeConversations(recentConversations);
                 renderRecentConversations();
+                persistConversationImages(currentConversationId);
+                pruneMedia();
 
                 if (firstUserMsgObj.content && !isImagePlaceholder(firstUserMsgObj.content) && (!existingConv || existingConv.title === conversationTitle(messages))) {
                     const convIdToUpdate = currentConversationId;
@@ -3579,9 +3745,10 @@ Rispondi SOLO con il titolo, nient'altro.`;
 
             currentConversationId = conversation.id;
             activeMode = ['instant', 'expert', 'vision'].includes(conversation.mode) ? conversation.mode : 'instant';
+            const storedMessages = Array.isArray(conversation.messages) ? conversation.messages : [];
             conversationHistory = [
                 { role: 'system', content: baseSystemPrompt() },
-                ...(Array.isArray(conversation.messages) ? conversation.messages : [])
+                ...storedMessages.map((message) => ({ role: message.role, content: message.content }))
             ];
             selectedModel = activeMode === 'vision' ? 'image' : (selectedModel !== 'image' ? selectedModel : modelTier);
             document.querySelectorAll('.tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.mode === activeMode));
@@ -3590,11 +3757,16 @@ Rispondi SOLO con il titolo, nient'altro.`;
             renderModelTier();
             messagesArea.innerHTML = '';
             welcomeBlock = null;
-            conversationHistory.filter((message) => message.role !== 'system').forEach((message) => {
-                addMessage(message.role === 'assistant' ? 'ai' : 'user', String(message.content || ''));
+            const withPhotos = [];
+            conversationHistory.filter((message) => message.role !== 'system').forEach((message, i) => {
+                const text = String(message.content || '');
+                const imgs = storedMessages[i]?.imgs || 0;
+                const el = addMessage(message.role === 'assistant' ? 'ai' : 'user', imgs && isImagePlaceholder(text) ? '' : text);
+                if (imgs) withPhotos.push({ i, el, text });
             });
             closeHistory();
             userInput.focus();
+            if (withPhotos.length) restoreConversationImages(conversation.id, withPhotos);
         }
 
         function deleteConversation(event, id) {
@@ -3602,6 +3774,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
             try {
                 recentConversations = recentConversations.filter((conversation) => conversation.id !== id);
                 storeConversations(recentConversations);
+                deleteConversationMedia(id);
                 if (id === currentConversationId) newChat();
                 renderRecentConversations();
             } catch (error) {
@@ -3630,6 +3803,24 @@ Rispondi SOLO con il titolo, nient'altro.`;
             `;
             messagesArea.appendChild(div);
             scrollBottom();
+            return div;
+        }
+
+        function attachmentImagesHtml(list) {
+            const tag = (a) => `<img src="${a.dataUrl}" class="msg-attachment-img" alt="${escapeHtml(a.name || 'foto')}" onclick="openImageFull(this)">`;
+            return list.length === 1 ? tag(list[0]) : `<div class="msg-attachment-grid">${list.map(tag).join('')}</div>`;
+        }
+
+        // Le foto sono data URL: il browser blocca window.open su di esse, quindi si passa da un blob
+        function openImageFull(img) {
+            try {
+                const [meta, data] = img.src.split(',');
+                const mime = (meta.match(/data:([^;]+)/) || [])[1] || 'image/jpeg';
+                const bin = atob(data);
+                const bytes = new Uint8Array(bin.length);
+                for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+                window.open(URL.createObjectURL(new Blob([bytes], { type: mime })), '_blank');
+            } catch (error) { console.warn('Foto non aperta', error); }
         }
 
         function mediaSourceFrom(element) {
@@ -3798,7 +3989,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
                         role,
                         content: [
                             { type: 'text', text: isImagePlaceholder(text) ? 'Descrivi cosa vedi in questa immagine.' : text },
-                            ...imageParts(message).slice(0, 1)
+                            ...imageParts(message).slice(0, MAX_PHOTOS_CHAT)
                         ]
                     };
                 }
@@ -3808,6 +3999,8 @@ Rispondi SOLO con il titolo, nient'altro.`;
 
         async function describeImageWithVision(dataUrl, question, { skipGroq = false, priorError = null } = {}) {
             if (imageDescriptionCache.has(dataUrl)) return imageDescriptionCache.get(dataUrl);
+            const savedText = await mediaGet('texts', 'd:' + textHash(dataUrl));
+            if (typeof savedText === 'string' && savedText) { imageDescriptionCache.set(dataUrl, savedText); return savedText; }
             const prompt = 'Descrivi questa immagine nel dettaglio, in italiano: oggetti, persone, colori, disposizione. '
                 + 'Trascrivi fedelmente ogni testo, numero, codice o messaggio di errore visibile. '
                 + 'Non rispondere a domande: fai solo una descrizione accurata.'
@@ -3830,7 +4023,7 @@ Rispondi SOLO con il titolo, nient'altro.`;
             for (const attempt of order) {
                 try {
                     const text = (await attempt() || '').trim();
-                    if (text) { imageDescriptionCache.set(dataUrl, text); return text; }
+                    if (text) { rememberDescription(dataUrl, text); return text; }
                 } catch (error) {
                     console.warn('Descrizione immagine non riuscita', error);
                     attempts.push(error);
@@ -3843,7 +4036,13 @@ Rispondi SOLO con il titolo, nient'altro.`;
         async function messagesWithImageDescription(messages, idx, options) {
             const target = messages[idx];
             const original = textOfMessage(target).trim();
-            const description = await describeImageWithVision(imageParts(target)[0].image_url.url, isImagePlaceholder(original) ? '' : original, options);
+            const descriptions = [];
+            for (const part of imageParts(target)) {
+                descriptions.push(await describeImageWithVision(part.image_url.url, isImagePlaceholder(original) ? '' : original, options));
+            }
+            const description = descriptions.length > 1
+                ? descriptions.map((d, n) => `Foto ${n + 1}:\n${d}`).join('\n\n')
+                : descriptions[0];
             const question = isImagePlaceholder(original) ? 'Descrivi cosa vedi in questa immagine.' : original;
             return messages.map((message, i) => i === idx
                 ? { role: message.role, content: `${question}\n\n[Descrizione automatica della foto allegata dall'utente]\n${description}` }
@@ -3894,7 +4093,12 @@ Rispondi SOLO con il titolo, nient'altro.`;
             } else if (cfg.fixedEffort) {
                 request.reasoning_effort = cfg.fixedEffort;
             }
-            if (activeSpace === 'quaderno') request.max_tokens = Math.max(request.max_tokens || 0, 6000);
+            if (activeSpace === 'quaderno') {
+                // compiti: risposte precise e ripetibili (poca casualità), ragionamento almeno medio
+                request.max_tokens = Math.max(request.max_tokens || 0, 8000);
+                request.temperature = 0.2;
+                if (!request.reasoning_effort || request.reasoning_effort === 'low') request.reasoning_effort = 'medium';
+            }
             const reply = await callGroqChatCompletion(request);
             return reply || 'Nessuna risposta.';
         }
@@ -4112,7 +4316,7 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
             text = text.replace(/\$([^\s$](?:[^$\n]*?[^\s$])?)\$(?!\d)/g, (m, tex) => keep(renderMath(tex, false)));
 
             // 3) escape HTML (sicurezza) + <br> ammesso
-            text = esc(text).replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+            text = esc(text).replace(/&lt;br\s*\/?&gt;/gi, '<br>').replace(/&lt;(\/?)(u|mark|sub|sup)&gt;/gi, '<$1$2>');
 
             // 4) formattazione inline
             const inline = (s) => s
@@ -4292,32 +4496,36 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
         }
 
         // ── Allegati in sospeso (anteprima prima dell'invio, come Claude) ──
-        let pendingAttachment = null; // { dataUrl, name, sizeMB, isImage, textContent }
+        let pendingAttachments = []; // [{ dataUrl, name, sizeMB, isImage, textContent }]
+        const MAX_PHOTOS_CHAT = 3;        // foto per messaggio in chat
+        const MAX_PHOTOS_QUADERNO = 15;   // foto per messaggio in Quaderno (compiti e riassunti)
+        function maxPhotos() { return activeSpace === 'quaderno' ? MAX_PHOTOS_QUADERNO : MAX_PHOTOS_CHAT; }
 
         function renderAttachPreview() {
             const bar = document.getElementById('attachPreviewBar');
             if (!bar) return;
-            if (!pendingAttachment) {
+            if (!pendingAttachments.length) {
                 bar.classList.remove('show');
                 bar.innerHTML = '';
                 return;
             }
-            const a = pendingAttachment;
+            const photos = pendingAttachments.filter((a) => a.isImage).length;
             bar.classList.add('show');
-            bar.innerHTML = `
-                <div class="attach-preview-chip">
+            bar.innerHTML = pendingAttachments.map((a, i) => `
+                <div class="attach-preview-chip${photos > 1 ? ' thumb' : ''}">
                     ${a.isImage
                         ? `<img src="${a.dataUrl}" alt="${escapeHtml(a.name)}">`
                         : `<div class="file-icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div>`}
                     <span class="attach-file-name">${escapeHtml(a.name)}</span>
-                    <button type="button" class="attach-remove-btn" onclick="removePendingAttachment()" title="Rimuovi allegato" aria-label="Rimuovi allegato">
+                    <button type="button" class="attach-remove-btn" onclick="removePendingAttachment(${i})" title="Rimuovi allegato" aria-label="Rimuovi allegato">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
                     </button>
-                </div>`;
+                </div>`).join('') + (photos ? `<span class="attach-count">${photos}/${maxPhotos()} foto</span>` : '');
         }
 
-        function removePendingAttachment() {
-            pendingAttachment = null;
+        function removePendingAttachment(index) {
+            if (typeof index === 'number') pendingAttachments.splice(index, 1);
+            else pendingAttachments = [];
             renderAttachPreview();
         }
 
@@ -4364,43 +4572,61 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
             });
         }
 
-        async function processFile(file) {
-            if (!file) return;
+        async function processFiles(fileList) {
+            const files = Array.from(fileList || []).filter(Boolean);
+            if (!files.length) return;
             if (processing) { showToast('Aspetta che Klaro finisca di rispondere, poi allega il file.'); return; }
-            const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-            try {
-                if (file.type.startsWith('image/') && file.type !== 'image/svg+xml') {
-                    if (file.size > MAX_IMAGE_MB * 1024 * 1024) { showToast(`Immagine troppo grande (max ${MAX_IMAGE_MB} MB).`); return; }
-                    const raw = await readFileAs(file, 'dataurl');
-                    let dataUrl;
-                    try { dataUrl = await downscaleImage(raw); }
-                    catch (error) { showToast('Non riesco ad aprire questa immagine. Prova con JPG, PNG o WebP.'); return; }
-                    pendingAttachment = { dataUrl, name: file.name, sizeMB, isImage: true };
-                } else if (isTextLikeFile(file)) {
-                    if (file.size > MAX_TEXT_FILE_MB * 1024 * 1024) { showToast(`File troppo grande (max ${MAX_TEXT_FILE_MB} MB).`); return; }
-                    let text = await readFileAs(file, 'text');
-                    if (text.length > MAX_TEXT_CHARS) {
-                        text = text.slice(0, MAX_TEXT_CHARS) + '\n…[file troncato]';
-                        showToast(`File lungo: ho incluso solo i primi ${MAX_TEXT_CHARS.toLocaleString('it-IT')} caratteri.`);
+            const limit = maxPhotos();
+            let skipped = 0;
+            for (const file of files) {
+                const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+                try {
+                    if (file.type.startsWith('image/') && file.type !== 'image/svg+xml') {
+                        // un eventuale file di testo in sospeso viene sostituito dalle foto
+                        pendingAttachments = pendingAttachments.filter((a) => a.isImage);
+                        if (pendingAttachments.length >= limit) { skipped++; continue; }
+                        if (file.size > MAX_IMAGE_MB * 1024 * 1024) { showToast(`Immagine troppo grande (max ${MAX_IMAGE_MB} MB).`); continue; }
+                        const raw = await readFileAs(file, 'dataurl');
+                        let dataUrl;
+                        try { dataUrl = await downscaleImage(raw); }
+                        catch (error) { showToast('Non riesco ad aprire questa immagine. Prova con JPG, PNG o WebP.'); continue; }
+                        if (pendingAttachments.length >= limit) { skipped++; continue; } // (nel frattempo ne sono arrivate altre)
+                        pendingAttachments.push({ dataUrl, name: file.name || 'foto.jpg', sizeMB, isImage: true });
+                    } else if (isTextLikeFile(file)) {
+                        if (file.size > MAX_TEXT_FILE_MB * 1024 * 1024) { showToast(`File troppo grande (max ${MAX_TEXT_FILE_MB} MB).`); continue; }
+                        let text = await readFileAs(file, 'text');
+                        if (text.length > MAX_TEXT_CHARS) {
+                            text = text.slice(0, MAX_TEXT_CHARS) + '\n…[file troncato]';
+                            showToast(`File lungo: ho incluso solo i primi ${MAX_TEXT_CHARS.toLocaleString('it-IT')} caratteri.`);
+                        }
+                        // un solo file di testo alla volta, senza foto insieme
+                        pendingAttachments = [{ textContent: text, name: file.name, sizeMB, isImage: false }];
+                    } else {
+                        showToast('Formato non supportato: allega foto o file di testo/codice.');
+                        continue;
                     }
-                    pendingAttachment = { textContent: text, name: file.name, sizeMB, isImage: false };
-                } else {
-                    showToast('Formato non supportato: allega foto o file di testo/codice.');
-                    return;
+                } catch (error) {
+                    console.warn('Allegato non caricato', error);
+                    showToast('Impossibile leggere il file.');
+                    continue;
                 }
-            } catch (error) {
-                console.warn('Allegato non caricato', error);
-                showToast('Impossibile leggere il file.');
-                return;
+                renderAttachPreview();
+            }
+            if (skipped) {
+                showToast(activeSpace === 'quaderno'
+                    ? `Puoi caricare al massimo ${MAX_PHOTOS_QUADERNO} foto alla volta.`
+                    : `In chat puoi allegare al massimo ${MAX_PHOTOS_CHAT} foto (in Quaderno fino a ${MAX_PHOTOS_QUADERNO}).`);
             }
             renderAttachPreview();
             userInput.focus();
         }
 
+        function processFile(file) { return processFiles([file]); }
+
         function handleFileUpload(event) {
-            const file = event.target.files[0];
+            const files = Array.from(event.target.files || []);
             event.target.value = '';
-            processFile(file);
+            processFiles(files);
         }
 
         // ── Trascina e rilascia (e incolla) ──
@@ -4431,15 +4657,14 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
                 overlay.classList.remove('show');
                 const files = Array.from(event.dataTransfer.files || []);
                 if (!files.length) return;
-                if (files.length > 1) showToast(`Si allega un file alla volta: ho preso "${files[0].name}".`);
-                processFile(files[0]);
+                processFiles(files);
             });
             window.addEventListener('blur', () => { depth = 0; overlay.classList.remove('show'); });
             document.addEventListener('paste', (event) => {
-                const image = Array.from(event.clipboardData?.files || []).find((f) => f.type.startsWith('image/'));
-                if (!image) return;
+                const images = Array.from(event.clipboardData?.files || []).filter((f) => f.type.startsWith('image/'));
+                if (!images.length) return;
                 event.preventDefault();
-                processFile(image);
+                processFiles(images);
             });
         })();
 
@@ -4518,8 +4743,10 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
         async function sendMessage() {
             if (processing) return;
             const text = userInput.value.trim();
-            const attachment = pendingAttachment;
-            if (!text && !attachment) return;
+            const attachments = pendingAttachments.slice();
+            const images = attachments.filter((a) => a.isImage);
+            const attachment = images.length ? null : (attachments[0] || null); // file di testo
+            if (!text && !attachments.length) return;
 
             if (isRateLimited(selectedModel)) {
                 showToast('⏱️ Hai raggiunto il limite di 15 richieste/minuto su Klaro Flash/Turbo/Plus. Aspetta qualche secondo e riprova.');
@@ -4530,17 +4757,17 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
             sendBtn.disabled = true;
             userInput.disabled = true;
 
-            pendingAttachment = null;
+            pendingAttachments = [];
             renderAttachPreview();
 
-            if (attachment && attachment.isImage) {
-                const imgHtml = `<img src="${attachment.dataUrl}" class="msg-attachment-img" alt="${escapeHtml(attachment.name)}" onclick="window.open('${attachment.dataUrl}', '_blank')">`;
+            if (images.length) {
+                const imgHtml = attachmentImagesHtml(images);
                 addMessage('user', text, '', imgHtml);
                 conversationHistory.push({
                     role: 'user',
                     content: [
-                        { type: 'text', text: text || `[Immagine allegata: ${attachment.name}]` },
-                        { type: 'image_url', image_url: { url: attachment.dataUrl } }
+                        { type: 'text', text: text || `[Immagine allegata: ${images.length === 1 ? images[0].name : images.length + ' foto'}]` },
+                        ...images.map((a) => ({ type: 'image_url', image_url: { url: a.dataUrl } }))
                     ]
                 });
             } else if (attachment) {
@@ -5112,10 +5339,13 @@ Use {"photo":false} for: code, maths, programming, greetings or chit-chat, opini
         // (frazioni con la barra orizzontale, radici, potenze…).
         const QUADERNO_MODELS = ['light', 'turbo', 'plus', 'maxchat', 'maxthink'];
         const HOMEWORK_SYSTEM_PROMPT = `You are Klaro Quaderno, the homework mode of Klaro AI: a patient, precise tutor for students. Answer in the language of the user (Italian by default).${IDENTITY_RULE}
-For every exercise (typed by the user or transcribed from a photo) write: "## Esercizio N" (keep the numbering of the book if visible), then "**Testo**" with the exercise rewritten cleanly, then "**Svolgimento**" with short numbered steps (one short sentence of reasoning per step, then the calculation), then "**Risultato**" with the final answer in bold. For non-maths subjects (grammar, translation, history, science) adapt the structure but stay ordered and concise. If something in the photo is unreadable or ambiguous, say what you could not read and which assumption you made; never invent data. If the student already wrote an answer in the photo, check it and point out mistakes kindly. If the user only asks to transcribe or check, do only that.
-MATH FORMATTING (very important): write every formula, equation, inequality, fraction, power, root, set, function, and every number with a unit in LaTeX. Inline formulas go between single dollar signs ($...$); equations or multi-step calculations go on their own lines between double dollar signs ($$...$$). Fractions must ALWAYS be written with \\frac{numerator}{denominator} (horizontal bar) and never as a/b or 3/4; use \\sqrt{...}, ^, _, \\cdot, \\times, \\div, \\le, \\ge, \\neq, \\pm, \\text{...} for words inside formulas, and \\begin{aligned} ... \\end{aligned} inside $$ ... $$ to align steps. Never use \\( \\) or \\[ \\] delimiters and never put formulas in code blocks.
+FIRST work out what kind of exercise it is, then use ONLY the matching format.
+1) NUMERIC OR ALGEBRAIC EXPRESSIONS (numbers, fractions, powers, roots and brackets to calculate or simplify; "espressioni"). Answer with exactly this and NOTHING else: a heading "## Esercizio N" (the number printed in the book, e.g. "## Esercizio 715"; if there is none write "## Espressione") followed by ONE block with the chain of equalities, one step per line, as in the scheme below. Never write "Testo", "Svolgimento", "Risultato", "Obiettivo", introductions, comments, explanations, titles for the steps, tables, bullet or numbered lists, bold text or a closing sentence. If the photo holds several expressions, repeat heading + block for each one, in order. Only if something in the photo is unreadable or ambiguous add ONE short line before the block saying which assumption you made. Work silently and double-check every calculation: a wrong number is worse than a missing step.${EXPRESSION_SCHEME}
+2) ALL OTHER EXERCISES (equations, problems, geometry, grammar, analysis, translation, history, science...): write "## Esercizio N" (keep the numbering of the book if visible), then "**Testo**" with the exercise rewritten cleanly, then "**Svolgimento**" with short numbered steps (one short sentence of reasoning per step, then the calculation), then "**Risultato**" with the final answer in bold. Stay ordered and concise. For language exercises prefer a numbered list, one item per sentence, to wide tables (use a table only for at most 4 short columns). To underline write <u>text</u>; to highlight use **bold**. If something in the photo is unreadable or ambiguous, say what you could not read and which assumption you made; never invent data. If the student already wrote an answer in the photo, check it and point out mistakes kindly. If the user only asks to transcribe or check, do only that.
+3) SUMMARIES AND MULTIPLE PHOTOS: the student can send up to 15 photos together (book pages, notes, exercises); they reach you already transcribed, in order, as [Foto N di M]. If the student asks for a summary ("riassunto"), a schema or a concept map, do NOT solve exercises: write one clear, well organised summary of all the pages together, in the order of the pages, with a "## " title, "### " subheadings for each topic, short bullet points, **bold** for key terms, names and dates, and a short final recap; stay faithful to the pages and never add facts that are not there. If the photos contain several exercises, solve them in order, each with its own heading.
+MATH FORMATTING (very important): write every formula, equation, inequality, fraction, power, root, set, function, and every number with a unit in LaTeX. Inline formulas go between single dollar signs ($...$); equations and multi-step calculations go on their own lines between double dollar signs ($$...$$). Fractions must ALWAYS be written with \\frac{numerator}{denominator} (horizontal bar) and never as a/b or 3/4; use \\sqrt{...}, ^, _, \\cdot, \\times, \\div, \\le, \\ge, \\neq, \\pm, \\text{...} for words inside formulas, and \\begin{aligned} ... \\end{aligned} inside $$ ... $$ to align steps. Never use \\( \\) or \\[ \\] delimiters and never put formulas in code blocks.
 Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
-        const HOMEWORK_TRANSCRIBE_PROMPT = `Trascrivi fedelmente, in italiano, tutto il testo degli esercizi visibili nella foto (compreso il numero dell'esercizio), senza risolverli e senza commentare. Scrivi ogni formula, frazione, potenza, radice ed equazione in LaTeX: inline tra $...$, equazioni su una riga propria tra $$...$$, con le frazioni sempre come \\frac{numeratore}{denominatore}. Se ci sono figure, grafici o tabelle, descrivili brevemente tra [parentesi quadre] riportando i dati utili. Se una parte è illeggibile scrivi [illeggibile]. Se vedi uno svolgimento o una risposta già scritti a mano dall'alunno, trascrivili dopo la dicitura "Svolgimento dell'alunno:".`;
+        const HOMEWORK_TRANSCRIBE_PROMPT = `Trascrivi fedelmente, in italiano, tutto il testo visibile nella foto (esercizi con il loro numero, ma anche pagine di libro o appunti: in quel caso trascrivi tutto, titoli compresi), senza risolvere né riassumere e senza commentare. Scrivi ogni formula, frazione, potenza, radice ed equazione in LaTeX: inline tra $...$, equazioni su una riga propria tra $$...$$, con le frazioni sempre come \\frac{numeratore}{denominatore}. Se ci sono figure, grafici o tabelle, descrivili brevemente tra [parentesi quadre] riportando i dati utili. Se una parte è illeggibile scrivi [illeggibile]. Se vedi uno svolgimento o una risposta già scritti a mano dall'alunno, trascrivili dopo la dicitura "Svolgimento dell'alunno:".`;
         const homeworkTranscriptions = new Map();
 
         function baseSystemPrompt() {
@@ -5144,22 +5374,22 @@ Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
                 return `
                 <div class="welcome-spark" aria-hidden="true"></div>
                 <h2><span>Quaderno</span></h2>
-                <p class="quad-sub">Fotografa l'esercizio: Klaro lo legge, lo risolve e te lo scrive in bella copia, con frazioni e formule come sul libro.</p>
+                <p class="quad-sub">Fotografa un esercizio o carica fino a 15 foto di pagine e appunti: Klaro risolve, scrive in bella copia con frazioni e formule come sul libro, e fa i riassunti.</p>
                 <div class="quad-actions">
-                    <button class="quad-btn" type="button" onclick="document.getElementById('homeworkFileInput').click()">
+                    <button class="quad-btn cam-only" type="button" onclick="document.getElementById('cameraInput').click()">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                        Foto dell'esercizio
+                        Scatta una foto
+                    </button>
+                    <button class="quad-btn" type="button" onclick="document.getElementById('homeworkFileInput').click()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                        Carica foto (fino a 15)
                     </button>
                     <button class="space-pill" type="button" onclick="setSpace('chat')">Torna alla chat</button>
                 </div>`;
             }
             return `
                 <div class="welcome-spark" aria-hidden="true"></div>
-                <h2><span id="welcomeSlogan"></span></h2>
-                <button class="space-pill" type="button" onclick="setSpace('quaderno')">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a3 3 0 013 3v13H7a3 3 0 01-3-3z"/><path d="M8 9h8M8 13h5"/></svg>
-                    Quaderno · fai i compiti da una foto
-                </button>`;
+                <h2><span id="welcomeSlogan"></span></h2>`;
         }
 
         function applySpaceUI() {
@@ -5192,7 +5422,7 @@ Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
             if (!VALID_MODELS.includes(target)) target = space === 'quaderno' ? 'plus' : 'light';
             if (space === 'quaderno' && !quadernoModelAllowed(target)) target = 'plus';
             if (['maxchat', 'maxthink'].includes(target) && !puterMaxActive) target = 'light';
-            pendingAttachment = null;
+            pendingAttachments = [];
             renderAttachPreview();
             applyModel(target);
             applySpaceUI();
@@ -5203,6 +5433,8 @@ Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
 
         async function transcribeHomeworkImage(dataUrl, note) {
             if (homeworkTranscriptions.has(dataUrl)) return homeworkTranscriptions.get(dataUrl);
+            const savedText = await mediaGet('texts', 't:' + textHash(dataUrl));
+            if (typeof savedText === 'string' && savedText) { homeworkTranscriptions.set(dataUrl, savedText); return savedText; }
             const prompt = HOMEWORK_TRANSCRIBE_PROMPT + (note ? ` Indicazione dell'alunno: "${note.slice(0, 300)}".` : '');
             let lastError = null;
             try {
@@ -5212,7 +5444,7 @@ Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
                     messages: [{ role: 'user', content: [{ type: 'text', text: prompt }, { type: 'image_url', image_url: { url: dataUrl } }] }]
                 })) || '').trim();
                 registerRequest('light');
-                if (text) { homeworkTranscriptions.set(dataUrl, text); return text; }
+                if (text) { rememberTranscription(dataUrl, text); return text; }
             } catch (error) {
                 lastError = error;
                 console.warn('Trascrizione con Groq non riuscita', error);
@@ -5221,7 +5453,7 @@ Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
                 try {
                     const response = await puter.ai.chat(prompt, dataUrl, false, { model: PUTER_VISION_MODEL });
                     const text = (parsePuterChatResponse(response).text || '').trim();
-                    if (text) { homeworkTranscriptions.set(dataUrl, text); return text; }
+                    if (text) { rememberTranscription(dataUrl, text); return text; }
                 } catch (error) {
                     lastError = error;
                     console.warn('Trascrizione con Puter non riuscita', error);
@@ -5230,6 +5462,28 @@ Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
             if (lastError && isQuotaError(lastError)) throw lastError;
             const reason = (lastError?.message || '').slice(0, 140);
             throw new Error("Non riesco a leggere la foto dell'esercizio. Riprova con una foto più nitida, ben illuminata e inquadrata dall'alto." + (reason ? ` (${reason})` : ''));
+        }
+
+        // Più foto: le trascrive 3 alla volta; una foto illeggibile non blocca le altre.
+        async function transcribeHomeworkImages(parts, note) {
+            const results = new Array(parts.length).fill('');
+            let next = 0;
+            let firstError = null;
+            const worker = async () => {
+                while (next < parts.length) {
+                    const i = next++;
+                    try {
+                        results[i] = await transcribeHomeworkImage(parts[i].image_url.url, note);
+                    } catch (error) {
+                        if (parts.length === 1 || isQuotaError(error)) throw error;
+                        firstError = firstError || error;
+                        results[i] = '[foto non leggibile]';
+                    }
+                }
+            };
+            await Promise.all(Array.from({ length: Math.min(3, parts.length) }, worker));
+            if (parts.length > 1 && results.every((t) => t === '[foto non leggibile]')) throw firstError;
+            return results;
         }
 
         // Sostituisce le foto con la loro trascrizione, così ogni modello di testo può risolverle
@@ -5242,8 +5496,14 @@ Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
                 if (!withImages.includes(i)) { result.push(message); continue; }
                 const original = textOfMessage(message).trim();
                 const note = isImagePlaceholder(original) ? '' : original;
-                const transcription = await transcribeHomeworkImage(imageParts(message)[0].image_url.url, note);
-                result.push({ role: message.role, content: `${note || 'Risolvi gli esercizi della foto.'}\n\n[Esercizi trascritti dalla foto]\n${transcription}` });
+                const parts = imageParts(message);
+                const transcriptions = await transcribeHomeworkImages(parts, note);
+                const many = parts.length > 1;
+                const body = many
+                    ? transcriptions.map((t, n) => `[Foto ${n + 1} di ${parts.length}]\n${t}`).join('\n\n')
+                    : transcriptions[0];
+                const fallbackNote = many ? "Analizza le foto (nell'ordine in cui sono state caricate) e rispondi a ciò che serve." : 'Risolvi gli esercizi della foto.';
+                result.push({ role: message.role, content: `${note || fallbackNote}\n\n[${many ? 'Testo trascritto dalle foto, in ordine' : 'Esercizi trascritti dalla foto'}]\n${body}` });
             }
             return result;
         }
@@ -5289,8 +5549,14 @@ Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
             if (!attachMenu.classList.contains('open')) return;
             const vv = window.visualViewport;
             const topLimit = (vv ? vv.offsetTop : 0) + 72;
-            const available = attachBtn.getBoundingClientRect().top - topLimit - 12;
-            attachMenu.style.maxHeight = Math.max(150, available) + 'px';
+            const gap = 12;
+            // il menu parte sopra il bordo della barra di scrittura (non sopra il bottone "+", che sta dentro la barra)
+            let barTop = (attachBtn.closest('.input-area') || attachBtn).getBoundingClientRect().top;
+            const previewBar = document.getElementById('attachPreviewBar');
+            if (previewBar && previewBar.classList.contains('show')) barTop = Math.min(barTop, previewBar.getBoundingClientRect().top);
+            const wrapBottom = attachBtn.parentElement.getBoundingClientRect().bottom;
+            attachMenu.style.bottom = Math.max(gap, wrapBottom - barTop + gap) + 'px';
+            attachMenu.style.maxHeight = Math.max(150, barTop - topLimit - gap) + 'px';
         }
 
         function refitMenus() { fitModelMenu(); fitAttachMenu(); }
@@ -5299,6 +5565,7 @@ Use Markdown for the rest: ## headings, **bold**, numbered lists.`;
 
         // Precarica l'animazione di caricamento quando la pagina è libera
         window.addEventListener('load', () => setTimeout(() => { new Image().src = 'loader.webp?v=2'; }, 1200));
+        window.addEventListener('load', () => setTimeout(pruneMedia, 4000));
 
         if (activeSpace === 'quaderno' && !quadernoModelAllowed(selectedModel)) {
             selectedModel = 'plus'; modelTier = 'plus'; activeMode = 'instant';
